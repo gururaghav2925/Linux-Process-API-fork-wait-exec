@@ -1,4 +1,4 @@
-# Linux-Process-API-fork-wait-exec-
+![Screenshot from 2024-03-22 00-32-08](https://github.com/gururaghav2925/Linux-Process-API-fork-wait-exec/assets/151489500/14dd5cb9-2708-4bfd-a161-88eb0b1a737c)# Linux-Process-API-fork-wait-exec-
 Ex02-Linux Process API-fork(), wait(), exec()
 # Ex02-OS-Linux-Process API - fork(), wait(), exec()
 Operating systems Lab exercise
@@ -79,8 +79,24 @@ int main(void)
 
 ## C Program to create new process using Linux API system calls fork() and exit()
 
+```
+#include <stdio.h>
+#include<stdlib.h>
+int main(){
+   int pid; 
+   pid=fork(); 
+   if(pid == 0) {
+        printf("Iam child my pid is %d\n",getpid());   
+        printf("My parent pid is:%d\n",getppid()); 
+        exit(0);
+ } 
+   else{ 
+        printf("I am parent, my pid is %d\n",getpid()); 
+        sleep(100); 
+        exit(0);
+} 
 
-
+```
 
 
 
@@ -95,6 +111,7 @@ int main(void)
 
 
 
+![Screenshot from 2024-03-22 00-12-43](https://github.com/gururaghav2925/Linux-Process-API-fork-wait-exec/assets/151489500/8dd34dc9-0052-42c1-994e-e65551278be7)
 
 
 
@@ -104,8 +121,36 @@ int main(void)
 
 
 
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+int main() {
+    pid_t pid = fork();
+    if (pid < 0) {
+        perror("Fork failed");
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        printf("This is the child process. Executing 'ls' command.\n");
+        execl("/bin/ls", "ls", "-l", NULL); // Lists files in long format
+        perror("execl failed");
+        exit(EXIT_FAILURE);
+    } else {
+        int status;
+        waitpid(pid, &status, 0); // Wait for the child to finish
+        if (WIFEXITED(status)) {
+            printf("Child process exited with status %d.\n", WEXITSTATUS(status));
+        } else {
+            printf("Child process did not exit normally.\n");
+        }
+        printf("Parent process is done.\n");
+    }
+    return 0;
+}
 
-
+```
 
 
 
@@ -132,6 +177,9 @@ int main(void)
 
 
 
+
+
+![Screenshot from 2024-03-22 00-32-08](https://github.com/gururaghav2925/Linux-Process-API-fork-wait-exec/assets/151489500/63ab2148-abcc-419e-aa14-3f2d6a3dc311)
 
 
 
