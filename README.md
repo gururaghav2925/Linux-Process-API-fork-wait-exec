@@ -59,7 +59,7 @@ int main(void)
 
 
 
-##OUTPUT
+## OUTPUT
 
 
 
@@ -91,7 +91,7 @@ int main(void)
 
 
 
-##OUTPUT
+## OUTPUT
 
 
 
@@ -127,7 +127,7 @@ int main(void)
 
 
 
-##OUTPUT
+## OUTPUT
 
 
 
