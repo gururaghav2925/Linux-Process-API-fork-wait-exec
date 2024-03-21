@@ -1,5 +1,4 @@
-![Screenshot from 2024-03-22 00-32-08](https://github.com/gururaghav2925/Linux-Process-API-fork-wait-exec/assets/151489500/14dd5cb9-2708-4bfd-a161-88eb0b1a737c)# Linux-Process-API-fork-wait-exec-
-Ex02-Linux Process API-fork(), wait(), exec()
+
 # Ex02-OS-Linux-Process API - fork(), wait(), exec()
 Operating systems Lab exercise
 
